@@ -12,7 +12,7 @@ function restricted(req, res, next) {
     next()
   }
   else{
-    res.status(404).json({message: "You shall not pass!" })
+    res.status(401).json({message: "You shall not pass!" })
   }
 }
 

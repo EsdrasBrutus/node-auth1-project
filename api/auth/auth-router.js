@@ -88,10 +88,10 @@ const { checkPasswordLength, checkUsernameExists, checkUsernameFree, restricted 
   }
  */
 router.get("/logout", (req, res)=>{
-  if(req.session){
+  if(req.session.user){
     req.session.destroy(err=>{
       if(err){
-        res.json("no session")
+        next(err)
       }
       else{
         res.status(200).json({message: "logged out"})
